@@ -1,4 +1,4 @@
-var cars = ["Ford", "Chevrolet", "Chrysler", "Honda", "Toyota", "Mazda", "Subaru", "Nissan",];
+var topics = ["Ford", "Chevrolet", "Chrysler", "Honda", "Toyota", "Mazda", "Subaru", "Nissan",];
 
 // displayMovieInfo function re-renders the HTML to display the appropriate content
 function displayCarInfo() {
@@ -25,10 +25,12 @@ function displayCarInfo() {
 
         var image = $("<img>").attr("src", imgURL);
 
-        $(image).addClass("gif")
+        $(image).addClass("gif");
+        
+      $("#gifs-appear-here").append(image);
 
-      $("#gifs-appear-here").append("Rating: " + rating).append(image);
-
+      $("#gifs-appear-here").append("Rating: " + rating);
+      
       }
     });
 }
@@ -37,15 +39,15 @@ function renderButtons() {
 
   $("#buttons-view").empty();
 
-  for (var i = 0; i < cars.length; i++) {
+  for (var i = 0; i < topics.length; i++) {
 
     var a = $("<button>");
     
     a.addClass("car-btn");
     
-    a.attr("data-name", cars[i]);
+    a.attr("data-name", topics[i]);
     
-    a.text(cars[i]);
+    a.text(topics[i]);
    
     $("#buttons-view").append(a);
   }
@@ -56,7 +58,7 @@ $("#add-car").on("click", function(event) {
 
   var car = $("#car-input").val().trim();
 
-  cars.push(car);
+  topics.push(car);
 
   renderButtons();
 });
